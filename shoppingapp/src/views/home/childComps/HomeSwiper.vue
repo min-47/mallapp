@@ -2,7 +2,7 @@
   <swiper>
     <swiper-item v-for="item in banners" :key='item.sort'>
       <a :href="item.link">
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt="" @load="loadimg">
       </a>
     </swiper-item>
   </swiper>
@@ -24,7 +24,12 @@
     components: {
       Swiper,
       SwiperItem
-    }
+    },
+    methods: {
+      loadimg(){
+        this.$emit('swiperloadimg')
+      }
+    },
   }
 </script>
 
